@@ -1,10 +1,10 @@
-# scp2
+# scp2-deploy
 
 A pure javascript secure copy program based on ssh2.
 
 -----
 
-scp2 is greatly powered by [ssh2](https://github.com/mscdex/ssh2), implementing `scp` in an `sftp` way.
+scp2-deploy is greatly powered by [ssh2](https://github.com/mscdex/ssh2), implementing `scp` in an `sftp` way.
 
 It is written in pure javascript, and should work on every OS, even Windows. Nodejs (v0.8.7 or newer) is required to use this library.
 
@@ -13,15 +13,11 @@ It is written in pure javascript, and should work on every OS, even Windows. Nod
 
 You can either use it as a library, or via CLI. For Windows users who miss scp in the unix/linux world, you can get it with:
 
-    $ npm install scp2 -g
+    $ npm install scp2-deploy -g
 
-You will get a command line tool `scp2`, now let's try:
+You will get a command line tool `scp2-deploy`, now let's try:
 
-    $ scp2 -h
-
-To get the development version from the ninja channel:
-
-    $ npm install scp2@ninja
+    $ scp2-deploy -h
 
 
 ## High level API
@@ -30,7 +26,7 @@ To get the development version from the ninja channel:
 Get the client:
 
 ```js
-var client = require('scp2')
+var client = require('scp2-deploy')
 ```
 
 Copy a file to the server:
@@ -116,7 +112,7 @@ client.scp('file.txt', {
 Get the client:
 
 ```js
-var Client = require('scp2').Client;
+var Client = require('scp2-deploy').Client;
 ```
 
 The high level client is an instance of `Client`, but also contains the high level API `scp`.
@@ -205,85 +201,6 @@ You can listen for these events:
 - write (object)
 - read (src)
 - transfer (buffer, uploaded, total)
-
-## Changelog
-
-**2016-05-29** `0.4.0`
-
-  * enable port
-
-**2016-05-20** `0.4.0`
-
-  * upgrade glob
-
-**2016-04-18** `0.3.0`
-
-  * Retain compatible with old implementations
-  * Added parameter to scp to allow custom client
-  * Add password to client object options
-  * Fix scp from windows client with folder
-  * Update version of ssh2 to 0.4.10
-  * Add pass arguments to callback
-  * Fix Closes conection when downloading a single file
-
-**2015-06-01** `0.2.2`
-
-1. Added error callback to download prototype
-2. Adding Client to scp module exports
-
-
-**2015-01-09** `0.2.1`
-
-1. Bugfix
-
-
-**2014-10-30** `0.2.0`
-
-1. Fixed the issue with corrupt download when file Size more than 65K
-2. Raising error on remote file not found
-3. Fix mode of all files being set to 0755
-4. Dependencies upgrade
-
-**2013-11-07** `0.1.4` ~stable
-
-1. Bugfix
-
-**2013-06-04** `0.1.3` ~stable
-
-1. Fixed mkdir mode bug
-
-**2013-06-04** `0.1.2` ~stable
-
-1. Fixed for uploading a large file (beyond the limitation of fs.readFile)
-2. Event emit for `transfer`
-
-**2013-06-03** `0.1.1` ~stable
-
-1. Bugfix for scp a large file.
-
-**2013-03-08** `0.1.0` ~ stable
-
-1. remove the require of buffer, `Buffer` is on global
-
-**2013-03-07** `0.1.0b1` ~ ninja
-
-1. show version options on binary
-2. bugfix of upload, it should mkdir right
-
-**2013-03-06** `0.1.0a3` ~ ninja
-
-1. Fix path bug on windows.
-2. Pretty output log.
-
-**2013-03-06** `0.1.0a2` ~ ninja
-
-1. Download a file from server works.
-2. Documentation on this lib.
-
-**2013-03-05** `0.1.0a1` ~ ninja
-
-1. Init the program, take the name scp2 in npmjs.org.
-2. scp to server works.
 
 
 ## License
